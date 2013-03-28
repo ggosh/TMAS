@@ -1,0 +1,456 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{311A864C-EAFF-4E44-8B60-DCA0A3AC1EA6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>WinAc.My.MyApplication</StartupObject>
+    <RootNamespace>WinAc</RootNamespace>
+    <AssemblyName>WinAc</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <OptionCompare>Text</OptionCompare>
+    <ApplicationIcon>WINAC2.ICO</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>WinAc.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>WinAc.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CppCodeProvider, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Web" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Classes\clsDashboard.vb" />
+    <Compile Include="Classes\clsGlmast.vb" />
+    <Compile Include="Classes\clsLogin.vb" />
+    <Compile Include="Classes\clsMain.Designer.vb">
+      <DependentUpon>clsMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\clsMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\clsPlace.vb" />
+    <Compile Include="Classes\clsTLexp.vb" />
+    <Compile Include="Classes\clsTLmast.vb" />
+    <Compile Include="Classes\clsCsgr.vb" />
+    <Compile Include="Classes\clsCsge.vb" />
+    <Compile Include="Classes\clsProduct.vb" />
+    <Compile Include="Classes\clsChallans.vb" />
+    <Compile Include="Classes\clsBills.vb" />
+    <Compile Include="Classes\clsRates.vb" />
+    <Compile Include="Classes\clsVouch.vb" />
+    <Compile Include="Classes\clsRep.vb" />
+    <Compile Include="Classes\clsSTmast.vb" />
+    <Compile Include="Classes\clsSubMast.vb" />
+    <Compile Include="Classes\DataAccessor.vb" />
+    <Compile Include="Forms\frmOwnrLdg.Designer.vb">
+      <DependentUpon>frmOwnrLdg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmOwnrLdg.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTLLdg.Designer.vb">
+      <DependentUpon>frmTLLdg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTLLdg.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTLexp.Designer.vb">
+      <DependentUpon>frmTLexp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTLexp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSubMast.Designer.vb">
+      <DependentUpon>frmSubMast.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSubMast.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DbfImp.Designer.vb">
+      <DependentUpon>DbfImp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DbfImp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBill2i.Designer.vb">
+      <DependentUpon>frmBill2i.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBill2i.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCBV.Designer.vb">
+      <DependentUpon>frmCBV.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCBV.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmVos.Designer.vb">
+      <DependentUpon>frmVos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmRates.Designer.vb">
+      <DependentUpon>frmRates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmRates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmGLmast.Designer.vb">
+      <DependentUpon>frmGLmast.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmGLmast.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBill.Designer.vb">
+      <DependentUpon>frmBill.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBill.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBills.Designer.vb">
+      <DependentUpon>frmBills.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBills.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChallan.Designer.vb">
+      <DependentUpon>frmChallan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChallan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmProduct.Designer.vb">
+      <DependentUpon>frmProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCsge.Designer.vb">
+      <DependentUpon>frmCsge.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCsge.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmCsgr.Designer.vb">
+      <DependentUpon>frmCsgr.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmCsgr.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmChallans.Designer.vb">
+      <DependentUpon>frmChallans.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmChallans.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDashboard.Designer.vb">
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDashboard.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.Designer.vb">
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPlace.Designer.vb">
+      <DependentUpon>frmPlace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPlace.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTLmast.Designer.vb">
+      <DependentUpon>frmTLmast.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTLmast.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Global.vb" />
+    <Compile Include="Modules\MainModule.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Splash.Designer.vb">
+      <DependentUpon>Splash.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Splash.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\frmOwnrLdg.resx">
+      <DependentUpon>frmOwnrLdg.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTLLdg.resx">
+      <DependentUpon>frmTLLdg.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTLexp.resx">
+      <DependentUpon>frmTLexp.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSubMast.resx">
+      <DependentUpon>frmSubMast.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DbfImp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>DbfImp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBill2i.resx">
+      <DependentUpon>frmBill2i.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCBV.resx">
+      <DependentUpon>frmCBV.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVos.resx">
+      <DependentUpon>frmVos.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmRates.resx">
+      <DependentUpon>frmRates.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmGLmast.resx">
+      <DependentUpon>frmGLmast.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBill.resx">
+      <DependentUpon>frmBill.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBills.resx">
+      <DependentUpon>frmBills.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChallan.resx">
+      <DependentUpon>frmChallan.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmProduct.resx">
+      <DependentUpon>frmProduct.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCsge.resx">
+      <DependentUpon>frmCsge.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmCsgr.resx">
+      <DependentUpon>frmCsgr.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmChallans.resx">
+      <DependentUpon>frmChallans.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDashboard.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmDashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FrmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMain.resx">
+      <DependentUpon>frmMain.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPlace.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmPlace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTLmast.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTLmast.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Splash.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Splash.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ti_led_red.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ti_led_green.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refr2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refr3.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clock1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WinAcL1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\winac.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WAClogo.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WAClogo2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WINAC.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Resources\blank.gif" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\Remove.png" />
+    <Content Include="WINAC.ICO" />
+    <Content Include="WINAC2.ICO" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
