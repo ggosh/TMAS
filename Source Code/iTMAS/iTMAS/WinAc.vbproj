@@ -238,6 +238,12 @@
     <Compile Include="Forms\frmTLmast.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\frmVouchers.Designer.vb">
+      <DependentUpon>frmVouchers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmVouchers.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modules\Global.vb" />
     <Compile Include="Modules\MainModule.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -350,6 +356,9 @@
     <EmbeddedResource Include="Forms\frmTLmast.resx">
       <SubType>Designer</SubType>
       <DependentUpon>frmTLmast.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmVouchers.resx">
+      <DependentUpon>frmVouchers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
