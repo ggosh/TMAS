@@ -313,7 +313,7 @@ Partial Class frmVouchers
         DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvTL.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvTL.RowHeadersWidth = 20
-        Me.dgvTL.Size = New System.Drawing.Size(274, 322)
+        Me.dgvTL.Size = New System.Drawing.Size(274, 360)
         Me.dgvTL.TabIndex = 36
         '
         'lblGridHeader
@@ -356,7 +356,7 @@ Partial Class frmVouchers
         DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvParty.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvParty.RowHeadersWidth = 20
-        Me.dgvParty.Size = New System.Drawing.Size(274, 322)
+        Me.dgvParty.Size = New System.Drawing.Size(274, 359)
         Me.dgvParty.TabIndex = 39
         '
         'cboType
