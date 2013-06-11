@@ -32,19 +32,13 @@ Partial Class frmVouchers
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gbVoDtl = New System.Windows.Forms.GroupBox()
-        Me.lblMessage = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.txtAmt = New System.Windows.Forms.TextBox()
         Me.lblDay = New System.Windows.Forms.Label()
-        Me.Label26 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.cboGLs = New System.Windows.Forms.ComboBox()
         Me.dgvVoDtl = New System.Windows.Forms.DataGridView()
         Me.Dr = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Account = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -53,18 +47,18 @@ Partial Class frmVouchers
         Me.Balance = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DC = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvTL = New System.Windows.Forms.DataGridView()
-        Me.lblGridHeader = New System.Windows.Forms.Label()
+        Me.TL = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgvParty = New System.Windows.Forms.DataGridView()
-        Me.cboType = New System.Windows.Forms.ComboBox()
-        Me.Label47 = New System.Windows.Forms.Label()
         Me.Bill = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DateCOlumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TL = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.cboType = New System.Windows.Forms.ComboBox()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnCancel = New System.Windows.Forms.Button()
         Me.gbVoDtl.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
         CType(Me.dgvVoDtl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvTL, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvParty, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,34 +66,24 @@ Partial Class frmVouchers
         '
         'gbVoDtl
         '
-        Me.gbVoDtl.Controls.Add(Me.lblMessage)
+        Me.gbVoDtl.Controls.Add(Me.txtAmt)
+        Me.gbVoDtl.Controls.Add(Me.lblDay)
         Me.gbVoDtl.Controls.Add(Me.GroupBox2)
+        Me.gbVoDtl.Controls.Add(Me.Label25)
         Me.gbVoDtl.Controls.Add(Me.TextBox2)
-        Me.gbVoDtl.Controls.Add(Me.TextBox1)
-        Me.gbVoDtl.Controls.Add(Me.Label2)
         Me.gbVoDtl.Controls.Add(Me.Label3)
-        Me.gbVoDtl.Controls.Add(Me.GroupBox1)
         Me.gbVoDtl.Controls.Add(Me.dgvVoDtl)
         Me.gbVoDtl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbVoDtl.Location = New System.Drawing.Point(12, 50)
         Me.gbVoDtl.Name = "gbVoDtl"
-        Me.gbVoDtl.Size = New System.Drawing.Size(596, 360)
+        Me.gbVoDtl.Size = New System.Drawing.Size(590, 284)
         Me.gbVoDtl.TabIndex = 34
         Me.gbVoDtl.TabStop = False
-        '
-        'lblMessage
-        '
-        Me.lblMessage.AutoSize = True
-        Me.lblMessage.Location = New System.Drawing.Point(345, 30)
-        Me.lblMessage.Name = "lblMessage"
-        Me.lblMessage.Size = New System.Drawing.Size(161, 15)
-        Me.lblMessage.TabIndex = 36
-        Me.lblMessage.Text = "(Payment to market rankers)"
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Label6)
-        Me.GroupBox2.Location = New System.Drawing.Point(305, 38)
+        Me.GroupBox2.Location = New System.Drawing.Point(180, 20)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(231, 32)
         Me.GroupBox2.TabIndex = 35
@@ -117,52 +101,23 @@ Partial Class frmVouchers
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(371, 100)
+        Me.TextBox2.Location = New System.Drawing.Point(482, 81)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(62, 21)
+        Me.TextBox2.Size = New System.Drawing.Size(93, 21)
         Me.TextBox2.TabIndex = 11
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(505, 100)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(70, 21)
-        Me.TextBox1.TabIndex = 10
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(453, 103)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 15)
-        Me.Label2.TabIndex = 8
-        Me.Label2.Text = "T/L No."
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(293, 103)
+        Me.Label3.Location = New System.Drawing.Point(404, 84)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(72, 15)
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Cheque No."
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.txtAmt)
-        Me.GroupBox1.Controls.Add(Me.lblDay)
-        Me.GroupBox1.Controls.Add(Me.Label26)
-        Me.GroupBox1.Controls.Add(Me.Label25)
-        Me.GroupBox1.Controls.Add(Me.cboGLs)
-        Me.GroupBox1.Location = New System.Drawing.Point(10, 38)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(267, 90)
-        Me.GroupBox1.TabIndex = 8
-        Me.GroupBox1.TabStop = False
-        '
         'txtAmt
         '
-        Me.txtAmt.Location = New System.Drawing.Point(63, 59)
+        Me.txtAmt.Location = New System.Drawing.Point(51, 81)
         Me.txtAmt.Name = "txtAmt"
         Me.txtAmt.Size = New System.Drawing.Size(138, 21)
         Me.txtAmt.TabIndex = 2
@@ -170,40 +125,20 @@ Partial Class frmVouchers
         'lblDay
         '
         Me.lblDay.AutoSize = True
-        Me.lblDay.Location = New System.Drawing.Point(208, 62)
+        Me.lblDay.Location = New System.Drawing.Point(196, 84)
         Me.lblDay.Name = "lblDay"
         Me.lblDay.Size = New System.Drawing.Size(41, 15)
         Me.lblDay.TabIndex = 7
         Me.lblDay.Text = "lblDay"
         '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(24, 32)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(36, 15)
-        Me.Label26.TabIndex = 6
-        Me.Label26.Text = "Type:"
-        '
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(24, 62)
+        Me.Label25.Location = New System.Drawing.Point(12, 84)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(36, 15)
         Me.Label25.TabIndex = 4
         Me.Label25.Text = "Date:"
-        '
-        'cboGLs
-        '
-        Me.cboGLs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cboGLs.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cboGLs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboGLs.FormattingEnabled = True
-        Me.cboGLs.Location = New System.Drawing.Point(63, 29)
-        Me.cboGLs.Name = "cboGLs"
-        Me.cboGLs.Size = New System.Drawing.Size(138, 23)
-        Me.cboGLs.TabIndex = 1
         '
         'dgvVoDtl
         '
@@ -225,7 +160,7 @@ Partial Class frmVouchers
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Bisque
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvVoDtl.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvVoDtl.Location = New System.Drawing.Point(10, 174)
+        Me.dgvVoDtl.Location = New System.Drawing.Point(10, 125)
         Me.dgvVoDtl.Name = "dgvVoDtl"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.PapayaWhip
@@ -236,7 +171,7 @@ Partial Class frmVouchers
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvVoDtl.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.dgvVoDtl.RowHeadersWidth = 20
-        Me.dgvVoDtl.Size = New System.Drawing.Size(565, 178)
+        Me.dgvVoDtl.Size = New System.Drawing.Size(565, 134)
         Me.dgvVoDtl.TabIndex = 5
         '
         'Dr
@@ -302,7 +237,7 @@ Partial Class frmVouchers
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Bisque
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvTL.DefaultCellStyle = DataGridViewCellStyle5
-        Me.dgvTL.Location = New System.Drawing.Point(617, 50)
+        Me.dgvTL.Location = New System.Drawing.Point(12, 350)
         Me.dgvTL.Name = "dgvTL"
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle6.BackColor = System.Drawing.Color.PapayaWhip
@@ -313,17 +248,20 @@ Partial Class frmVouchers
         DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvTL.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.dgvTL.RowHeadersWidth = 20
-        Me.dgvTL.Size = New System.Drawing.Size(274, 360)
+        Me.dgvTL.Size = New System.Drawing.Size(575, 253)
         Me.dgvTL.TabIndex = 36
         '
-        'lblGridHeader
+        'TL
         '
-        Me.lblGridHeader.AutoSize = True
-        Me.lblGridHeader.Location = New System.Drawing.Point(627, 23)
-        Me.lblGridHeader.Name = "lblGridHeader"
-        Me.lblGridHeader.Size = New System.Drawing.Size(161, 13)
-        Me.lblGridHeader.TabIndex = 37
-        Me.lblGridHeader.Text = "(sub entry for 2nd a/c onwards)"
+        Me.TL.Frozen = True
+        Me.TL.HeaderText = "T\L"
+        Me.TL.Name = "TL"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.Frozen = True
+        Me.DataGridViewTextBoxColumn6.HeaderText = "Account"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         '
         'dgvParty
         '
@@ -345,7 +283,7 @@ Partial Class frmVouchers
         DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Bisque
         DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dgvParty.DefaultCellStyle = DataGridViewCellStyle8
-        Me.dgvParty.Location = New System.Drawing.Point(617, 50)
+        Me.dgvParty.Location = New System.Drawing.Point(12, 350)
         Me.dgvParty.Name = "dgvParty"
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle9.BackColor = System.Drawing.Color.PapayaWhip
@@ -356,29 +294,8 @@ Partial Class frmVouchers
         DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvParty.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.dgvParty.RowHeadersWidth = 20
-        Me.dgvParty.Size = New System.Drawing.Size(274, 359)
+        Me.dgvParty.Size = New System.Drawing.Size(575, 253)
         Me.dgvParty.TabIndex = 39
-        '
-        'cboType
-        '
-        Me.cboType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cboType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cboType.FormattingEnabled = True
-        Me.cboType.Items.AddRange(New Object() {"T/L", "Party", "Drivers", "Others"})
-        Me.cboType.Location = New System.Drawing.Point(108, 23)
-        Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(149, 21)
-        Me.cboType.TabIndex = 40
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(23, 27)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(77, 13)
-        Me.Label47.TabIndex = 41
-        Me.Label47.Text = "Voucher Type:"
         '
         'Bill
         '
@@ -398,38 +315,64 @@ Partial Class frmVouchers
         Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
         Me.DataGridViewTextBoxColumn8.Width = 80
         '
-        'TL
+        'Label47
         '
-        Me.TL.Frozen = True
-        Me.TL.HeaderText = "T\L"
-        Me.TL.Name = "TL"
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(9, 23)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(77, 13)
+        Me.Label47.TabIndex = 41
+        Me.Label47.Text = "Voucher Type:"
         '
-        'DataGridViewTextBoxColumn6
+        'cboType
         '
-        Me.DataGridViewTextBoxColumn6.Frozen = True
-        Me.DataGridViewTextBoxColumn6.HeaderText = "Account"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.cboType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.cboType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cboType.FormattingEnabled = True
+        Me.cboType.Items.AddRange(New Object() {"Payment", "Receipt", "Contra", "Journal"})
+        Me.cboType.Location = New System.Drawing.Point(92, 23)
+        Me.cboType.Name = "cboType"
+        Me.cboType.Size = New System.Drawing.Size(149, 21)
+        Me.cboType.TabIndex = 40
+        '
+        'btnSave
+        '
+        Me.btnSave.Location = New System.Drawing.Point(224, 625)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnSave.TabIndex = 42
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'btnCancel
+        '
+        Me.btnCancel.Location = New System.Drawing.Point(315, 625)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.TabIndex = 43
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = True
         '
         'frmVouchers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Linen
-        Me.ClientSize = New System.Drawing.Size(939, 449)
+        Me.ClientSize = New System.Drawing.Size(614, 663)
+        Me.Controls.Add(Me.btnCancel)
+        Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.cboType)
         Me.Controls.Add(Me.Label47)
-        Me.Controls.Add(Me.dgvParty)
-        Me.Controls.Add(Me.lblGridHeader)
-        Me.Controls.Add(Me.dgvTL)
         Me.Controls.Add(Me.gbVoDtl)
+        Me.Controls.Add(Me.dgvTL)
+        Me.Controls.Add(Me.dgvParty)
         Me.Name = "frmVouchers"
         Me.Text = "frmVouchers"
         Me.gbVoDtl.ResumeLayout(False)
         Me.gbVoDtl.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.dgvVoDtl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvTL, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvParty, System.ComponentModel.ISupportInitialize).EndInit()
@@ -440,16 +383,10 @@ Partial Class frmVouchers
     Friend WithEvents gbVoDtl As System.Windows.Forms.GroupBox
     Friend WithEvents dgvVoDtl As System.Windows.Forms.DataGridView
     Friend WithEvents txtAmt As System.Windows.Forms.TextBox
-    Friend WithEvents cboGLs As System.Windows.Forms.ComboBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
-    Friend WithEvents Label26 As System.Windows.Forms.Label
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents lblDay As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents lblMessage As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Dr As System.Windows.Forms.DataGridViewCheckBoxColumn
@@ -459,13 +396,14 @@ Partial Class frmVouchers
     Friend WithEvents Balance As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DC As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dgvTL As System.Windows.Forms.DataGridView
-    Friend WithEvents lblGridHeader As System.Windows.Forms.Label
     Friend WithEvents dgvParty As System.Windows.Forms.DataGridView
-    Friend WithEvents cboType As System.Windows.Forms.ComboBox
-    Friend WithEvents Label47 As System.Windows.Forms.Label
     Friend WithEvents TL As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Bill As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DateCOlumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn8 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Label47 As System.Windows.Forms.Label
+    Friend WithEvents cboType As System.Windows.Forms.ComboBox
+    Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents btnCancel As System.Windows.Forms.Button
 End Class

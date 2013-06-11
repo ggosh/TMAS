@@ -1,26 +1,18 @@
 ﻿Public Class frmVouchers
 
     Private Sub cboType_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cboType.SelectedIndexChanged
-        If cboType.SelectedItem = "T/L" Then
+        If cboType.SelectedItem = "Payment" Then
             dgvTL.Visible = True
             dgvParty.Visible = False
-            lblGridHeader.Visible = True
-            lblMessage.Text = "(Payment to market tankers)"
-        ElseIf cboType.SelectedItem = "Party" Then
+        ElseIf cboType.SelectedItem = "Receipt" Then
             dgvParty.Visible = True
             dgvTL.Visible = False
-            lblGridHeader.Visible = True
-            lblMessage.Text = "(Receipt from Party)"
-        ElseIf cboType.SelectedItem = "Drivers" Then
+        ElseIf cboType.SelectedItem = "Contra" Then
             dgvParty.Visible = True
             dgvTL.Visible = False
-            lblGridHeader.Visible = True
-            lblMessage.Text = "(Payment to drivers)"
-        ElseIf cboType.SelectedItem = "Others" Then
+        ElseIf cboType.SelectedItem = "Journal" Then
             dgvParty.Visible = False
             dgvTL.Visible = False
-            lblGridHeader.Visible = False
-            lblMessage.Text = "(Payment to others)"
         End If
     End Sub
 
