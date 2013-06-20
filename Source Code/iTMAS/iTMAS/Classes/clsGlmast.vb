@@ -849,6 +849,22 @@ Public Class clsGlmast
 
     End Function
 
+    Public Function GetAllAccounts() As List(Of String)
+        Dim accounts As List(Of String) = New List(Of String)
+        Dim prm As SqlParameter = New SqlParameter
+        Dim con As SqlConnection = New SqlConnection(gStrConnectString)
+        con.Open()
+        Dim command As SqlCommand = New SqlCommand("s_GetAccountNames", con)
+        command.CommandType = CommandType.StoredProcedure
+        Dim reader As SqlDataReader = command.ExecuteReader()
+        While reader.Read()
+            accounts.Add(reader("AcName"))
+        End While
+
+        Return accounts
+
+    End Function
+
     Public Function GetPartyByCode(ByVal CoID As String, ByVal GLcd As String) As Int64
 
         Dim ds As DataSet

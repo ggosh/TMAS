@@ -32,14 +32,14 @@ Partial Class frmVouchers
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gbVoDtl = New System.Windows.Forms.GroupBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.txtAmt = New System.Windows.Forms.TextBox()
         Me.lblDay = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label25 = New System.Windows.Forms.Label()
-        Me.dgvVoDtl = New System.Windows.Forms.DataGridView()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.dgvVoucherDetail = New System.Windows.Forms.DataGridView()
         Me.Dr = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Account = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DrAmt = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -59,7 +59,7 @@ Partial Class frmVouchers
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.gbVoDtl.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.dgvVoDtl, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvVoucherDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvTL, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvParty, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -72,13 +72,29 @@ Partial Class frmVouchers
         Me.gbVoDtl.Controls.Add(Me.Label25)
         Me.gbVoDtl.Controls.Add(Me.TextBox2)
         Me.gbVoDtl.Controls.Add(Me.Label3)
-        Me.gbVoDtl.Controls.Add(Me.dgvVoDtl)
+        Me.gbVoDtl.Controls.Add(Me.dgvVoucherDetail)
         Me.gbVoDtl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbVoDtl.Location = New System.Drawing.Point(12, 50)
         Me.gbVoDtl.Name = "gbVoDtl"
         Me.gbVoDtl.Size = New System.Drawing.Size(590, 284)
         Me.gbVoDtl.TabIndex = 34
         Me.gbVoDtl.TabStop = False
+        '
+        'txtAmt
+        '
+        Me.txtAmt.Location = New System.Drawing.Point(51, 81)
+        Me.txtAmt.Name = "txtAmt"
+        Me.txtAmt.Size = New System.Drawing.Size(138, 21)
+        Me.txtAmt.TabIndex = 2
+        '
+        'lblDay
+        '
+        Me.lblDay.AutoSize = True
+        Me.lblDay.Location = New System.Drawing.Point(196, 84)
+        Me.lblDay.Name = "lblDay"
+        Me.lblDay.Size = New System.Drawing.Size(41, 15)
+        Me.lblDay.TabIndex = 7
+        Me.lblDay.Text = "lblDay"
         '
         'GroupBox2
         '
@@ -99,6 +115,15 @@ Partial Class frmVouchers
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Cash/Bank Voucher"
         '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(12, 84)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(36, 15)
+        Me.Label25.TabIndex = 4
+        Me.Label25.Text = "Date:"
+        '
         'TextBox2
         '
         Me.TextBox2.Location = New System.Drawing.Point(482, 81)
@@ -115,32 +140,7 @@ Partial Class frmVouchers
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "Cheque No."
         '
-        'txtAmt
-        '
-        Me.txtAmt.Location = New System.Drawing.Point(51, 81)
-        Me.txtAmt.Name = "txtAmt"
-        Me.txtAmt.Size = New System.Drawing.Size(138, 21)
-        Me.txtAmt.TabIndex = 2
-        '
-        'lblDay
-        '
-        Me.lblDay.AutoSize = True
-        Me.lblDay.Location = New System.Drawing.Point(196, 84)
-        Me.lblDay.Name = "lblDay"
-        Me.lblDay.Size = New System.Drawing.Size(41, 15)
-        Me.lblDay.TabIndex = 7
-        Me.lblDay.Text = "lblDay"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(12, 84)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(36, 15)
-        Me.Label25.TabIndex = 4
-        Me.Label25.Text = "Date:"
-        '
-        'dgvVoDtl
+        'dgvVoucherDetail
         '
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.AntiqueWhite
@@ -149,9 +149,9 @@ Partial Class frmVouchers
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvVoDtl.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgvVoDtl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvVoDtl.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Dr, Me.Account, Me.DrAmt, Me.CrAmt, Me.Balance, Me.DC})
+        Me.dgvVoucherDetail.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.dgvVoucherDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvVoucherDetail.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Dr, Me.Account, Me.DrAmt, Me.CrAmt, Me.Balance, Me.DC})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.Snow
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -159,9 +159,9 @@ Partial Class frmVouchers
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BurlyWood
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Bisque
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dgvVoDtl.DefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvVoDtl.Location = New System.Drawing.Point(10, 125)
-        Me.dgvVoDtl.Name = "dgvVoDtl"
+        Me.dgvVoucherDetail.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dgvVoucherDetail.Location = New System.Drawing.Point(10, 125)
+        Me.dgvVoucherDetail.Name = "dgvVoucherDetail"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.PapayaWhip
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -169,10 +169,10 @@ Partial Class frmVouchers
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvVoDtl.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.dgvVoDtl.RowHeadersWidth = 20
-        Me.dgvVoDtl.Size = New System.Drawing.Size(565, 134)
-        Me.dgvVoDtl.TabIndex = 5
+        Me.dgvVoucherDetail.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.dgvVoucherDetail.RowHeadersWidth = 20
+        Me.dgvVoucherDetail.Size = New System.Drawing.Size(565, 134)
+        Me.dgvVoucherDetail.TabIndex = 5
         '
         'Dr
         '
@@ -373,7 +373,7 @@ Partial Class frmVouchers
         Me.gbVoDtl.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.dgvVoDtl, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvVoucherDetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvTL, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvParty, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -381,7 +381,7 @@ Partial Class frmVouchers
 
     End Sub
     Friend WithEvents gbVoDtl As System.Windows.Forms.GroupBox
-    Friend WithEvents dgvVoDtl As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvVoucherDetail As System.Windows.Forms.DataGridView
     Friend WithEvents txtAmt As System.Windows.Forms.TextBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents lblDay As System.Windows.Forms.Label
