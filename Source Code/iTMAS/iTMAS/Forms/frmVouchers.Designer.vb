@@ -31,8 +31,11 @@ Partial Class frmVouchers
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.gbVoDtl = New System.Windows.Forms.GroupBox()
-        Me.txtAmt = New System.Windows.Forms.TextBox()
+        Me.txtDate = New System.Windows.Forms.TextBox()
         Me.lblDay = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -57,16 +60,21 @@ Partial Class frmVouchers
         Me.cboType = New System.Windows.Forms.ComboBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
+        Me.dgvOthers = New System.Windows.Forms.DataGridView()
+        Me.SubLedgerAccount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ParentAccount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Amount = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gbVoDtl.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgvVoucherDetail, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvTL, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvParty, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvOthers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbVoDtl
         '
-        Me.gbVoDtl.Controls.Add(Me.txtAmt)
+        Me.gbVoDtl.Controls.Add(Me.txtDate)
         Me.gbVoDtl.Controls.Add(Me.lblDay)
         Me.gbVoDtl.Controls.Add(Me.GroupBox2)
         Me.gbVoDtl.Controls.Add(Me.Label25)
@@ -80,12 +88,13 @@ Partial Class frmVouchers
         Me.gbVoDtl.TabIndex = 34
         Me.gbVoDtl.TabStop = False
         '
-        'txtAmt
+        'txtDate
         '
-        Me.txtAmt.Location = New System.Drawing.Point(51, 81)
-        Me.txtAmt.Name = "txtAmt"
-        Me.txtAmt.Size = New System.Drawing.Size(138, 21)
-        Me.txtAmt.TabIndex = 2
+        Me.txtDate.Location = New System.Drawing.Point(51, 81)
+        Me.txtDate.Name = "txtDate"
+        Me.txtDate.ReadOnly = True
+        Me.txtDate.Size = New System.Drawing.Size(138, 21)
+        Me.txtDate.TabIndex = 2
         '
         'lblDay
         '
@@ -221,7 +230,7 @@ Partial Class frmVouchers
         '
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.AntiqueWhite
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Tahoma", 8.0!)
         DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -231,7 +240,7 @@ Partial Class frmVouchers
         Me.dgvTL.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TL, Me.DataGridViewTextBoxColumn6})
         DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = System.Drawing.Color.Snow
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Tahoma", 8.0!)
         DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.BurlyWood
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Bisque
@@ -241,7 +250,7 @@ Partial Class frmVouchers
         Me.dgvTL.Name = "dgvTL"
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle6.BackColor = System.Drawing.Color.PapayaWhip
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 8.0!)
         DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -354,12 +363,66 @@ Partial Class frmVouchers
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
         '
+        'dgvOthers
+        '
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.AntiqueWhite
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Tahoma", 8.0!)
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvOthers.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        Me.dgvOthers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvOthers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SubLedgerAccount, Me.ParentAccount, Me.Amount})
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.Snow
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Tahoma", 8.0!)
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.BurlyWood
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Bisque
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dgvOthers.DefaultCellStyle = DataGridViewCellStyle11
+        Me.dgvOthers.Location = New System.Drawing.Point(12, 350)
+        Me.dgvOthers.Name = "dgvOthers"
+        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.PapayaWhip
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Tahoma", 8.0!)
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvOthers.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        Me.dgvOthers.RowHeadersWidth = 20
+        Me.dgvOthers.Size = New System.Drawing.Size(575, 253)
+        Me.dgvOthers.TabIndex = 44
+        '
+        'SubLedgerAccount
+        '
+        Me.SubLedgerAccount.Frozen = True
+        Me.SubLedgerAccount.HeaderText = "Sub Ledger Account"
+        Me.SubLedgerAccount.Name = "SubLedgerAccount"
+        Me.SubLedgerAccount.Width = 150
+        '
+        'ParentAccount
+        '
+        Me.ParentAccount.Frozen = True
+        Me.ParentAccount.HeaderText = "Parent Account"
+        Me.ParentAccount.Name = "ParentAccount"
+        Me.ParentAccount.ReadOnly = True
+        '
+        'Amount
+        '
+        Me.Amount.HeaderText = "Amount"
+        Me.Amount.Name = "Amount"
+        '
         'frmVouchers
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Linen
         Me.ClientSize = New System.Drawing.Size(614, 663)
+        Me.Controls.Add(Me.dgvOthers)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.cboType)
@@ -376,13 +439,14 @@ Partial Class frmVouchers
         CType(Me.dgvVoucherDetail, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvTL, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvParty, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvOthers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents gbVoDtl As System.Windows.Forms.GroupBox
     Friend WithEvents dgvVoucherDetail As System.Windows.Forms.DataGridView
-    Friend WithEvents txtAmt As System.Windows.Forms.TextBox
+    Friend WithEvents txtDate As System.Windows.Forms.TextBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents lblDay As System.Windows.Forms.Label
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
@@ -406,4 +470,8 @@ Partial Class frmVouchers
     Friend WithEvents cboType As System.Windows.Forms.ComboBox
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button
+    Friend WithEvents dgvOthers As System.Windows.Forms.DataGridView
+    Friend WithEvents SubLedgerAccount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ParentAccount As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Amount As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

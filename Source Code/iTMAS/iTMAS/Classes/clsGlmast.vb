@@ -851,7 +851,6 @@ Public Class clsGlmast
 
     Public Function GetAllAccounts() As List(Of String)
         Dim accounts As List(Of String) = New List(Of String)
-        Dim prm As SqlParameter = New SqlParameter
         Dim con As SqlConnection = New SqlConnection(gStrConnectString)
         con.Open()
         Dim command As SqlCommand = New SqlCommand("s_GetAccountNames", con)
@@ -862,6 +861,76 @@ Public Class clsGlmast
         End While
 
         Return accounts
+
+    End Function
+
+    Public Function GetSubLedgerDetailsByAccount(ByVal AccountName As String) As List(Of String)
+        Dim subLedgerAccounts As List(Of String) = New List(Of String)
+        Dim con As SqlConnection = New SqlConnection(gStrConnectString)
+        Dim parameter As SqlParameter = New SqlParameter
+        parameter.DbType = DbType.String
+        parameter.Direction = ParameterDirection.Input
+        parameter.Value = AccountName
+        parameter.ParameterName = "@AcName"
+
+        con.Open()
+        Dim command As SqlCommand = New SqlCommand("s_GetSubLedgersByAccount", con)
+        command.CommandType = CommandType.StoredProcedure
+        command.Parameters.Add(parameter)
+        Dim reader As SqlDataReader = command.ExecuteReader()
+        While reader.Read()
+            subLedgerAccounts.Add(reader("SubName"))
+        End While
+
+        Return subLedgerAccounts
+    End Function
+
+    Public Function GetBalance(ByVal AccountName As String) As Decimal
+        Dim ds As DataSet
+        Dim prms(3) As SqlParameter
+        Dim prm As SqlParameter
+        ' parameter 1
+        prm = New SqlParameter
+        prm.DbType = DbType.String
+        prm.Direction = ParameterDirection.Input
+        prm.Size = 1
+        prm.Value = AccountName
+        prm.ParameterName = "@AcName"
+        prms(0) = prm
+        prm = Nothing
+        ' parameter 2
+        prm = New SqlParameter
+        prm.DbType = DbType.String
+        prm.Direction = ParameterDirection.Input
+        prm.Value = Date.Now
+        prm.ParameterName = "@Upto"
+        prms(1) = prm
+        prm = Nothing
+        ' parameter 3
+        prm = New SqlParameter
+        prm.DbType = DbType.String
+        prm.Direction = ParameterDirection.Output
+        prm.Size = 1000
+        prm.ParameterName = "@ErrMsg"
+        prms(2) = prm
+        prm = Nothing
+        ' parameter 4
+        prm = New SqlParameter
+        prm.DbType = DbType.Decimal
+        prm.Direction = ParameterDirection.Output
+        prm.ParameterName = "@GBal"
+        prms(3) = prm
+        prm = Nothing
+
+        objDA.ExecuteQuery("s_GetGLbal", prms)
+
+        If prms(2).Value.ToString.Trim <> "" Then
+            Return prms(2).Value
+        ElseIf prms(3).Value Is DBNull.Value Then
+            Return 0
+        Else
+            Return prms(3).Value
+        End If
 
     End Function
 
