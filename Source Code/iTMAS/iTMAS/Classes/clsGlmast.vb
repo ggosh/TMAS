@@ -856,12 +856,12 @@ Public Class clsGlmast
         Dim command As SqlCommand = New SqlCommand("s_GetAccountNames", con)
         command.CommandType = CommandType.StoredProcedure
         Dim reader As SqlDataReader = command.ExecuteReader()
+
         While reader.Read()
             accounts.Add(reader("AcName"))
         End While
 
         Return accounts
-
     End Function
 
     Public Function GetSubLedgerDetailsByAccount(ByVal AccountName As String) As List(Of String)
@@ -931,11 +931,9 @@ Public Class clsGlmast
         Else
             Return prms(3).Value
         End If
-
     End Function
 
     Public Function GetPartyByCode(ByVal CoID As String, ByVal GLcd As String) As Int64
-
         Dim ds As DataSet
         Dim prms(2) As SqlParameter
         Dim prm As SqlParameter
@@ -1043,5 +1041,4 @@ Public Class clsGlmast
         End Try
 
     End Function
-
 End Class

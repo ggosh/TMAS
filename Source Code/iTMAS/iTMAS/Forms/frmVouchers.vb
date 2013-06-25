@@ -3,22 +3,6 @@
     Dim objGlmast As New clsGlmast
     Dim subLedgerAccounts As List(Of String)
 
-    Private Sub cboType_SelectedIndexChanged(sender As System.Object, e As System.EventArgs)
-        If cboType.SelectedItem = "Payment" Then
-            dgvTL.Visible = True
-            dgvParty.Visible = False
-        ElseIf cboType.SelectedItem = "Receipt" Then
-            dgvParty.Visible = True
-            dgvTL.Visible = False
-        ElseIf cboType.SelectedItem = "Contra" Then
-            dgvParty.Visible = True
-            dgvTL.Visible = False
-        ElseIf cboType.SelectedItem = "Journal" Then
-            dgvParty.Visible = False
-            dgvTL.Visible = False
-        End If
-    End Sub
-
     Public Function AutoCompleteLoad() As AutoCompleteStringCollection
         Dim accounts As List(Of String) = objGlmast.GetAllAccounts()
         Dim autoCompleteCollection As New AutoCompleteStringCollection()
@@ -28,7 +12,7 @@
         Return autoCompleteCollection
     End Function
 
-    Private Sub dgvVoucherDetail_EditingControlShowing(sender As System.Object, e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles dgvVoucherDetail.EditingControlShowing
+    Private Sub dgvVoucherDetail_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgvVoucherDetail.EditingControlShowing
         Dim column As Integer = dgvVoucherDetail.CurrentCell.ColumnIndex
         Dim headerText As String = dgvVoucherDetail.Columns(column).HeaderText
         If headerText.Equals("Account") Then
@@ -41,7 +25,7 @@
         End If
     End Sub
 
-    Private Sub frmVouchers_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmVouchers_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         dgvParty.Visible = False
         cboType.SelectedIndex = 0
         txtDate.Text = System.DateTime.Today
@@ -63,7 +47,7 @@
         End If
     End Sub
 
-    Private Sub dgvOthers_EditingControlShowing(sender As System.Object, e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles dgvOthers.EditingControlShowing
+    Private Sub dgvOthers_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgvOthers.EditingControlShowing
         Dim row As DataGridViewRow = dgvVoucherDetail.CurrentRow
         If row IsNot Nothing Then
             Dim accountName As String = row.Cells("Account").Value
@@ -132,7 +116,7 @@
         End If
     End Sub
 
-    Private Sub dgvOthers_CellValueChanged(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvOthers.CellValueChanged
+    Private Sub dgvOthers_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgvOthers.CellValueChanged
         If dgvOthers IsNot Nothing Then
             If dgvOthers.CurrentRow IsNot Nothing Then
                 Dim parent As String = dgvOthers.CurrentRow.Cells("parentAccount").Value
@@ -150,4 +134,45 @@
             End If
         End If
     End Sub
+
+    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Dim voucherDetails As VoucherDTO = New VoucherDTO()
+        voucherDetails.AcId = 0
+        voucherDetails.VoucherNo = txtVoucherNo.Text.Trim()
+        voucherDetails.VoucherDate = txtDate.Text.Trim()
+        voucherDetails.VType = GetVoucherType()
+        voucherDetails.ChqNo = txtChqNo.Text.Trim()
+        voucherDetails.BankDate = DateTime.Now
+        voucherDetails.Amt = 0
+        voucherDetails.CoCd = String.Empty
+        voucherDetails.Brn = String.Empty
+        voucherDetails.YrCd = String.Empty
+        voucherDetails.RefId = 0
+        voucherDetails.Narr = String.Empty
+        voucherDetails.Dtls = String.Empty
+        voucherDetails.SDtls = String.Empty
+
+        Dim clsVoucher As clsVouch = New clsVouch()
+        clsVoucher.InsertUpdateVouch(voucherDetails)
+
+        'For Each row As DataGridViewRow In dgvVoucherDetail.Rows
+
+        'Next
+    End Sub
+
+    Private Function GetVoucherType() As String
+        Dim voucherType As String = String.Empty
+        Select Case cboType.SelectedItem
+            Case "Payment"
+                voucherType = "P"
+            Case "Receipt"
+                voucherType = "R"
+            Case "Contra"
+                voucherType = "C"
+            Case "Journal"
+                voucherType = "J"
+        End Select
+
+        Return voucherType
+    End Function
 End Class

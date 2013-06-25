@@ -165,9 +165,7 @@ Public Class clsVouch
 
     End Function
 
-    Public Function InsertUpdateVouch(ByVal Ac_ID As Int32, ByVal VoNo As String, ByVal VoDt As Date, ByVal vTyp As String, ByVal ChqNo As String, _
-            ByVal bank_dt As Nullable(Of Date), ByVal Amt As Decimal, ByVal co_cd As String, ByVal brn As String, ByVal yr_cd As String, _
-            ByVal ref_id As Integer, ByVal Narr As String, ByVal Dtls As String, ByVal SDtls As String) As Object
+    Public Function InsertUpdateVouch(voucherDetails As VoucherDTO) As Object
 
         Dim prms(15) As SqlParameter
         Dim prm As SqlParameter
@@ -176,9 +174,8 @@ Public Class clsVouch
         prm = New SqlParameter
         prm.DbType = DbType.Int32
         prm.Direction = ParameterDirection.Input
-        prm.Size = 1
-        prm.Value = Ac_ID
-        prm.ParameterName = "@ac_id"
+        prm.Value = voucherDetails.AcId
+        prm.ParameterName = "@Ac_id"
         prms(0) = prm
         prm = Nothing
         ' parameter 2
@@ -186,7 +183,7 @@ Public Class clsVouch
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
         prm.Size = 15
-        prm.Value = VoNo
+        prm.Value = voucherDetails.VoucherNo
         prm.ParameterName = "@Vo_No"
         prms(1) = prm
         prm = Nothing
@@ -194,7 +191,7 @@ Public Class clsVouch
         prm = New SqlParameter
         prm.DbType = DbType.Date
         prm.Direction = ParameterDirection.Input
-        prm.Value = VoDt
+        prm.Value = voucherDetails.VoucherDate
         prm.ParameterName = "@Vo_Dt"
         prms(2) = prm
         prm = Nothing
@@ -203,7 +200,7 @@ Public Class clsVouch
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
         prm.Size = 1
-        prm.Value = vTyp
+        prm.Value = voucherDetails.VType
         prm.ParameterName = "@Vo_Type"
         prms(3) = prm
         prm = Nothing
@@ -212,7 +209,7 @@ Public Class clsVouch
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
         prm.Size = 10
-        prm.Value = ChqNo
+        prm.Value = voucherDetails.ChqNo
         prm.ParameterName = "@Cheque_No"
         prms(4) = prm
         prm = Nothing
@@ -220,7 +217,7 @@ Public Class clsVouch
         prm = New SqlParameter
         prm.DbType = DbType.Date
         prm.Direction = ParameterDirection.Input
-        prm.Value = bank_dt
+        prm.Value = voucherDetails.BankDate
         prm.ParameterName = "@Bank_Dt"
         prms(5) = prm
         prm = Nothing
@@ -228,7 +225,7 @@ Public Class clsVouch
         prm = New SqlParameter
         prm.DbType = DbType.Decimal
         prm.Direction = ParameterDirection.Input
-        prm.Value = Amt
+        prm.Value = voucherDetails.Amt
         prm.ParameterName = "@Amount"
         prms(6) = prm
         prm = Nothing
@@ -236,36 +233,39 @@ Public Class clsVouch
         prm = New SqlParameter
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
-        prm.Value = co_cd
+        prm.Value = voucherDetails.CoCd
         prm.ParameterName = "@CO_CD"
         prms(7) = prm
+        prm = Nothing
         ' parameter 9
         prm = New SqlParameter
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
-        prm.Value = brn
+        prm.Value = voucherDetails.Brn
         prm.ParameterName = "@branch"
         prms(8) = prm
+        prm = Nothing
         ' parameter 10
         prm = New SqlParameter
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
-        prm.Value = yr_cd
-        prm.ParameterName = "@YR_CD"
+        prm.Value = voucherDetails.YrCd
+        prm.ParameterName = "@Yr_CD"
         prms(9) = prm
         prm = Nothing
         ' parameter 11
         prm = New SqlParameter
         prm.DbType = DbType.Int64
         prm.Direction = ParameterDirection.Input
-        prm.Value = ref_id
-        prm.ParameterName = "@Ref_ID"
+        prm.Value = voucherDetails.RefId
+        prm.ParameterName = "@Ref_id"
         prms(10) = prm
+        prm = Nothing
         ' parameter 12
         prm = New SqlParameter
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
-        prm.Value = Narr
+        prm.Value = voucherDetails.Narr
         prm.ParameterName = "@Narr"
         prms(11) = prm
         prm = Nothing
@@ -273,7 +273,7 @@ Public Class clsVouch
         prm = New SqlParameter
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
-        prm.Value = Dtls
+        prm.Value = voucherDetails.Dtls
         prm.ParameterName = "@Dtls"
         prms(12) = prm
         prm = Nothing
@@ -281,7 +281,7 @@ Public Class clsVouch
         prm = New SqlParameter
         prm.DbType = DbType.String
         prm.Direction = ParameterDirection.Input
-        prm.Value = SDtls
+        prm.Value = voucherDetails.SDtls
         prm.ParameterName = "@SubDtls"
         prms(13) = prm
         prm = Nothing
@@ -308,7 +308,5 @@ Public Class clsVouch
         Else
             Return prms(14).Value
         End If
-
     End Function
-
 End Class

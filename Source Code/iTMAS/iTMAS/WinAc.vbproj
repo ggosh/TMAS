@@ -106,6 +106,7 @@
     <Compile Include="Classes\clsSTmast.vb" />
     <Compile Include="Classes\clsSubMast.vb" />
     <Compile Include="Classes\DataAccessor.vb" />
+    <Compile Include="DataTransferObjects\VoucherDTO.vb" />
     <Compile Include="Forms\frmOwnrLdg.Designer.vb">
       <DependentUpon>frmOwnrLdg.vb</DependentUpon>
     </Compile>

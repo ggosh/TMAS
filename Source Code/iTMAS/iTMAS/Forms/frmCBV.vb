@@ -299,8 +299,20 @@ Public Class frmCBV
                 Exit Sub
             End If
 
-            VoId = objVO.InsertUpdateVouch(VoId, txtVoNo.Text, dtpVoDt.Value.ToShortDateString, cboType.SelectedValue, txtChqNo.Text, _
-                 "", txtAmt.Text, gCoId, gAcBrn, gYrCd, 0, txtNarr.Text, "", "")
+            Dim voucherDetails As VoucherDTO = New VoucherDTO()
+            voucherDetails.AcId = VoId
+            voucherDetails.VoucherNo = txtVoNo.Text
+            voucherDetails.VoucherDate = dtpVoDt.Value.ToShortDateString
+            voucherDetails.VType = cboType.SelectedValue
+            voucherDetails.ChqNo = txtChqNo.Text
+            voucherDetails.Amt = txtAmt.Text
+            voucherDetails.CoCd = gCoId
+            voucherDetails.Brn = gAcBrn
+            voucherDetails.YrCd = gYrCd
+            voucherDetails.RefId = 0
+            voucherDetails.Narr = txtNarr.Text
+
+            VoId = objVO.InsertUpdateVouch(voucherDetails)
 
         Catch ex As Exception
             gError_Message("Could not save Voucher! " + ex.Message, 0)
