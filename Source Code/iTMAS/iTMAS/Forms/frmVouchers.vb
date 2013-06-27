@@ -34,8 +34,16 @@
     End Sub
 
     Private Sub CellValueChanged(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles dgvVoucherDetail.CellValueChanged
-        UpdateBalance()
-        CheckBalance()
+        If dgvVoucherDetail IsNot Nothing Then
+            If dgvVoucherDetail.CurrentCell IsNot Nothing Then
+                Dim column As Integer = dgvVoucherDetail.CurrentCell.ColumnIndex
+                Dim headerText As String = dgvVoucherDetail.Columns(column).HeaderText
+                If headerText.Equals("Account") Then
+                    UpdateBalance()
+                    CheckBalance()
+                End If
+            End If
+        End If
     End Sub
 
     Private Sub UpdateBalance()
